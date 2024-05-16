@@ -23,6 +23,7 @@ import { FormSuccess } from "../form-success";
 import { login } from "@/actions/login";
 import { useState, useTransition } from "react";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const LoginForm = () => {
   const searchParams = useSearchParams();
@@ -101,7 +102,9 @@ const LoginForm = () => {
               )}
             />
           </div>
-          <FormError message={error || urlError} />
+          <Suspense>
+            <FormError message={error || urlError} />
+          </Suspense>
           <FormSuccess message={success} />
           <Button disabled={isPending} type="submit" className="w-full">
             Login
