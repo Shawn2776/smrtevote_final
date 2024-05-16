@@ -2,19 +2,20 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
-import { useParams } from "next/navigation";
 import CardWrapper from "./card-wrapper";
 import { newVerification } from "@/actions/new-verification";
 import { FormSuccess } from "../form-success";
 import { FormError } from "../form-error";
+import { useSearchParams } from "next/navigation";
 
 const NewVerificationForm = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const searchParams = useParams();
+  const searchParams = useSearchParams();
 
-  const token = searchParams.get("token");
+  //   const token = searchParams.get("token");
+  const token = "1111";
 
   const onSubmit = useCallback(() => {
     if (!token) {
