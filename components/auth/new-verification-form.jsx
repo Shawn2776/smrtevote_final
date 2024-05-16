@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
-import { useSearchParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import CardWrapper from "./card-wrapper";
 import { newVerification } from "@/actions/new-verification";
 import { FormSuccess } from "../form-success";
@@ -12,7 +12,7 @@ const NewVerificationForm = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const searchParams = useSearchParams();
+  const searchParams = useParams();
 
   const token = searchParams.get("token");
 
